@@ -19,6 +19,9 @@ class Organization {
   get country() {
     return this.#country;
   }
+  set name(value) {
+    this.#name = value;
+  }
   get rawData() {
     return { ...this.#data };
     // 얉은 복사를 해서 전달하면 외부에서 수정해도 내가 가지고 있는 데이터에는 영향을 주지 않는다
@@ -27,4 +30,6 @@ class Organization {
 }
 
 let instance = new Organization({ name: "ksy", country: "KR" }); // 객체를 불변성으로 만들기
+instance.name = "tttt";
+console.log(instance.name);
 console.log(instance.rawData);
